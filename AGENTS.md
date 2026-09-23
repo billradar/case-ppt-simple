@@ -6,6 +6,10 @@
 
 病例汇报 PPT 的**保守改造**：**模板骨架零改动**，但文字内容、文本格式、既有表格与图片都可自由编辑，并可新增元素。内容可自行生成。
 
+**准备**：先检查 ppt-mcp（`uvx ppt-mcp`）是否已安装——已装则跳过；未装则安装（OpenCode 写入 `opencode.json` 的 `mcp.powerpoint`）并**提示用户重启后继续**。
+
+**病例库**：优先在 [references/case-library.md](references/case-library.md) 与 `cases/` 中按科室/病种选用现成高质量病例；不足时据 `cases/_TEMPLATE.md` 扩展。
+
 ## 必须遵守
 
 1. **先复制**源 PPT 为工作副本，只编辑副本，原件不动。

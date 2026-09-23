@@ -43,7 +43,17 @@ references/
   powerpoint-technical.md     工具操作与禁用清单
   validation.md               完成前的逐项核对清单
   examples.md                 允许/禁止的具体例子
+  case-library.md             病例库索引与选用规则
+cases/
+  _TEMPLATE.md                新增病例模板
+  <科室>-<病种>.md            现成高质量病例（12 个，覆盖多科室）
 ```
+
+## 病例库（预置）
+
+`cases/` 内置 12 个去标识化高质量教学病例：儿科川崎病、新生儿 ABO 溶血性黄疸、血液科 ITP、产科子痫前期、呼吸科 CAP、心内科 STEMI、内分泌 DKA、消化科溃疡并出血、神经内科脑梗死、普外科急性阑尾炎、肾内科急性肾小球肾炎、感染科慢性乙型肝炎。
+
+按科室/病种直接选用；不足时据 `cases/_TEMPLATE.md` 扩展。索引与选用规则见 [references/case-library.md](references/case-library.md)。
 
 ## 一句话记忆
 

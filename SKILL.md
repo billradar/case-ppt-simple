@@ -49,6 +49,9 @@ metadata:
 | 工具操作与禁用清单 | [references/powerpoint-technical.md](references/powerpoint-technical.md) |
 | 完成前逐项核对 | [references/validation.md](references/validation.md) |
 | 允许/禁止的具体例子 | [references/examples.md](references/examples.md) |
+| 选现成高质量病例 / 扩展病例库 | [references/case-library.md](references/case-library.md) 与 `cases/` |
+
+**优先用病例库**：先在 `cases/` 中按科室/病种选用现成高质量病例（见 [references/case-library.md](references/case-library.md)），不足时再生成。
 
 ## 铁律（不可突破）
 
