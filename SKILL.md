@@ -22,6 +22,13 @@ metadata:
 - 异常值强调色：`#EE0000`，只标关键数值，不整段染红。
 - 新增对象的字体族与字号区间与全篇一致；正文不低于 16 pt。
 
+## 准备（开始前）
+
+0. **检查是否已安装并可连接 ppt-mcp（PowerPoint MCP）**：
+   - 项目：https://github.com/ykuwai/ppt-mcp ，以 `uvx ppt-mcp` 启动，需要 [uv](https://docs.astral.sh/uv/getting-started/installation/) 与本机已安装的 Microsoft PowerPoint（Windows / macOS）。
+   - 探测：调用一次 `ppt_get_app_info` 或 `ppt_list_presentations`，能返回 PowerPoint 信息即已就绪。
+   - 未安装时：先提示安装并给出标准配置 `{"mcpServers":{"powerpoint":{"command":"uvx","args":["ppt-mcp"]}}}`；无法安装则降级为“只整理内容与可执行修改清单”，不要伪称已改 PPT。
+
 ## 开始
 
 1. 先用文件读取能力加载 [references/workflow.md](references/workflow.md)；编辑前先创建并验证安全副本。
