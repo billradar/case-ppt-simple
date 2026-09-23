@@ -2,9 +2,13 @@
 
 ## 0. 环境准备
 
-- **检查是否已安装 ppt-mcp（PowerPoint MCP）**：https://github.com/ykuwai/ppt-mcp （以 `uvx ppt-mcp` 启动，需 uv 与本机 Microsoft PowerPoint）。
-- 探测：调用 `ppt_get_app_info` / `ppt_list_presentations`；有返回即已就绪。
-- 未安装：先给出安装与配置（标准配置 `uvx ppt-mcp`）或请用户人工安装；确实无 MCP 时降级为“只整理内容与可执行修改清单”，不伪称已改 PPT。
+- **检查是否已安装 ppt-mcp（PowerPoint MCP）**：https://github.com/ykuwai/ppt-mcp （`uvx ppt-mcp`，需 [uv](https://docs.astral.sh/uv/getting-started/installation/) 与本机 Microsoft PowerPoint）。
+- 探测：调用 `ppt_get_app_info` / `ppt_list_presentations`。**有返回 → 已安装，跳过安装，直接进入 §1**。
+- **未安装 → 安装，然后请用户重启后继续**：
+  1. 确认 `uv` 可用（`uv --version`），缺失则先安装 uv；
+  2. 写入 MCP 客户端配置：OpenCode（`opencode.json`）用 `{"$schema":"https://opencode.ai/config.json","mcp":{"powerpoint":{"type":"local","command":["uvx","ppt-mcp"],"enabled":true}}}`；其他客户端用 `{"mcpServers":{"powerpoint":{"command":"uvx","args":["ppt-mcp"]}}}`；
+  3. **提示用户重启 OpenCode / 会话**（MCP 仅启动时加载），重启后继续执行；
+  4. 仍不可用 → 退回 PowerShell COM / python-pptx；确无自动化能力时降级为“只整理内容与可执行修改清单”，不伪称已改 PPT。
 
 ## 1. 接收与边界确认
 

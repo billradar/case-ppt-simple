@@ -24,10 +24,16 @@ metadata:
 
 ## 准备（开始前）
 
-0. **检查是否已安装并可连接 ppt-mcp（PowerPoint MCP）**：
-   - 项目：https://github.com/ykuwai/ppt-mcp ，以 `uvx ppt-mcp` 启动，需要 [uv](https://docs.astral.sh/uv/getting-started/installation/) 与本机已安装的 Microsoft PowerPoint（Windows / macOS）。
-   - 探测：调用一次 `ppt_get_app_info` 或 `ppt_list_presentations`，能返回 PowerPoint 信息即已就绪。
-   - 未安装时：先提示安装并给出标准配置 `{"mcpServers":{"powerpoint":{"command":"uvx","args":["ppt-mcp"]}}}`；无法安装则降级为“只整理内容与可执行修改清单”，不要伪称已改 PPT。
+0. **检查是否已安装 ppt-mcp（PowerPoint MCP）；未装则安装并让用户重启后继续**。
+   - 项目与依赖：https://github.com/ykuwai/ppt-mcp ，以 `uvx ppt-mcp` 启动；需要 [uv](https://docs.astral.sh/uv/getting-started/installation/) 与本机 Microsoft PowerPoint（Windows / macOS）。
+   - 探测：调用一次 `ppt_get_app_info` 或 `ppt_list_presentations`。**有返回 → 已安装，跳过安装，直接继续**。
+   - **未安装 → 执行安装**：
+     1. 确认 `uv` 可用（`uv --version`）；缺失则先安装 uv。
+     2. 把 ppt-mcp 写入当前 MCP 客户端配置：
+        - OpenCode（`opencode.json`）：`{"$schema":"https://opencode.ai/config.json","mcp":{"powerpoint":{"type":"local","command":["uvx","ppt-mcp"],"enabled":true}}}`
+        - 其他客户端（Claude Desktop / Cursor / `.mcp.json`）：`{"mcpServers":{"powerpoint":{"command":"uvx","args":["ppt-mcp"]}}}`
+     3. **提示用户重启 OpenCode / 会话**：MCP 只在启动时加载，重启后重新发起任务即可继续。
+     4. 重启后仍不可用 → 退回 PowerShell COM 或 python-pptx；确无自动化能力时，只整理内容与可执行修改清单，不伪称已改 PPT。
 
 ## 开始
 
