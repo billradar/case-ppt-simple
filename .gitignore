@@ -1,0 +1,11 @@
+# 模板/成品文件（体积大、且随机构而异，不入库）
+templates/
+*.pptx
+*.potx
+
+# 系统与编辑器临时文件
+Thumbs.db
+Desktop.ini
+.DS_Store
+*.tmp
+~$*
